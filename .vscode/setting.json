@@ -1,0 +1,4 @@
+{
+    "csharp.extensions.useCSharpDevKit": false,
+    "dotnet.preferCSharpExtension": true
+}
