@@ -85,7 +85,8 @@ public class GameController : MonoBehaviour
         state = State.GameOver;
 
         // シーン中のすべてのScrollObjectコンポーネントを探し出す
-        ScrollObject[] scrollObjects = FindObjectsOfType<ScrollObject>();
+        // ScrollObject[] scrollObjects = FindObjectsOfType<ScrollObject>();
+        ScrollObject[] scrollObjects = Object.FindObjectsByType<ScrollObject>(FindObjectsSortMode.None);
 
         // 全ScrollObjectのスクロール処理を無効にする
         foreach (ScrollObject so in scrollObjects) so.enabled = false;
