@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2333656365920332218}
   - component: {fileID: 2747586234648044388}
   - component: {fileID: 8793494706940192386}
-  - component: {fileID: 2904757705560297851}
+  - component: {fileID: 3306783862118667120}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2333656365920332218
 SpriteRenderer:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1148129286617098494, guid: 624c3f2a1f8478a4294ca6ed3df4e157, type: 3}
+  m_Sprite: {fileID: 3090421441385258324, guid: 3fbebec2c2165334abf772f787022b55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
+    oldSize: {x: 0.6, y: 0.49}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,7 +160,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
---- !u!114 &2904757705560297851
+--- !u!114 &3306783862118667120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   hp: 1
   hitEffectPrefab: {fileID: 5058151572838873069, guid: f672448799750ff458c9a12d60782975, type: 3}
   dropItemPrefab: {fileID: 2153946414463840191, guid: 64e6b65db9d06724cae9e5f70d78be1c, type: 3}
-  dropRate: 0.807
+  dropRate: 0.9
   player: {fileID: 0}
-  itemSpeed: 2
+  itemSpeed: 3
   itemRandomAngle: 30

@@ -50,36 +50,39 @@ SpriteAtlas:
     cachedData: {fileID: 0}
     packedSpriteRenderDataKeys:
     - 78d82e5195332ce4cb506bc770f8809f: 583115046591817185
+    - 3fbebec2c2165334abf772f787022b55: 3090421441385258324
     - 727f412306dc24a82a733861c0cf606c: 21300000
     - f229e5241b1e18849a2d5803f1c8a93a: 21300000
-    - 856540153d78405449afef12d1ed5b60: 21300000
     - 2c59b5158725c4db4892e34a85d8bf14: 21300000
     - fb4c7275b71d9c7409c599bb9e80e632: 21300000
     - 6ff0005955a0a4dd0ace9672b3d8812d: 21300000
     - 624c3f2a1f8478a4294ca6ed3df4e157: 1148129286617098494
+    - 88881dbb158a2634cb46584f7a738831: 4826430853908998413
     - a980e84ebdcc04e4db4a8697fe6167f3: 21300000
     - fa7be84f7f483dd46ab3ad2a373b0db7: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 583115046591817185, guid: 78d82e5195332ce4cb506bc770f8809f, type: 3}
+  - {fileID: 3090421441385258324, guid: 3fbebec2c2165334abf772f787022b55, type: 3}
   - {fileID: 21300000, guid: 727f412306dc24a82a733861c0cf606c, type: 3}
   - {fileID: 21300000, guid: f229e5241b1e18849a2d5803f1c8a93a, type: 3}
-  - {fileID: 21300000, guid: 856540153d78405449afef12d1ed5b60, type: 3}
   - {fileID: 21300000, guid: 2c59b5158725c4db4892e34a85d8bf14, type: 3}
   - {fileID: 21300000, guid: fb4c7275b71d9c7409c599bb9e80e632, type: 3}
   - {fileID: 21300000, guid: 6ff0005955a0a4dd0ace9672b3d8812d, type: 3}
   - {fileID: 1148129286617098494, guid: 624c3f2a1f8478a4294ca6ed3df4e157, type: 3}
+  - {fileID: 4826430853908998413, guid: 88881dbb158a2634cb46584f7a738831, type: 3}
   - {fileID: 21300000, guid: a980e84ebdcc04e4db4a8697fe6167f3, type: 3}
   - {fileID: 21300000, guid: fa7be84f7f483dd46ab3ad2a373b0db7, type: 3}
   m_PackedSpriteNamesToIndex:
   - Bullet00 1_0
+  - Enemy01_0
   - Cloud
   - Chara03
-  - Sky
   - Ground
   - Chara02
   - Block
   - Enemy00_0
+  - Bullet01_0
   - Mountain
   - Chara01
   m_RenderDataMap: {}

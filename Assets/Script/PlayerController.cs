@@ -33,12 +33,5 @@ public class PlayerController : MonoBehaviour
         float clampedY = Mathf.Clamp(transform.position.y, 0f, 13f);
 
         transform.position = new Vector3(clampedX, clampedY, 0f);
-
-        // 弾の発射処理
-        if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        }
     }
 }
