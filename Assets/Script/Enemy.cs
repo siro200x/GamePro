@@ -48,6 +48,9 @@ public class Enemy : MonoBehaviour
                 {
                     GameObject item = Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
 
+                    // x秒後に自動消滅
+                    Destroy(item, 10f);
+
                     Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
                     if (rb != null && player != null)
                     {

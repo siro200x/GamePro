@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerShooting shooting; // PlayerShootingをInspectorでセット
+    public PlayerController shooting; // PlayerShootingをInspectorでセット
     public GameObject newBulletPrefab; // アイテムで変わる弾
 
     void OnTriggerEnter2D(Collider2D other)
