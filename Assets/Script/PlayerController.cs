@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Scripting.APIUpdating;
@@ -38,43 +39,56 @@ public class PlayerController : MonoBehaviour
     private float nextFireTime = 0f;
     private float initialMoveSpeed;
     private Quaternion initialRotation;
+    private Vector2 inputVector;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // 通常は重力なし
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         initialMoveSpeed = moveSpeed; // 保存
         initialRotation = transform.rotation; // 初期Rotationを保存
+
     }
 
     void Update()
     {
         if (!isDead)
         {
-            Move();
+            inputVector.x = Input.GetAxisRaw("Horizontal");
+            inputVector.y = Input.GetAxisRaw("Vertical");
             Shoot();
+            Move(inputVector);
         }
     }
 
-    private void Move()
+    private void Move(Vector2 move)
     {
         // 入力取得(WASD or 十字キー)
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        //float moveX = Input.GetAxisRaw("Horizontal");
+        //float moveY = Input.GetAxisRaw("Vertical");
 
         // 移動ベクトル
-        Vector3 move = new Vector3(moveX, moveY, 0).normalized;
+        //Vector2 move = new Vector2(moveX, moveY);
 
+        if (move.magnitude > 1f) move = move.normalized;
         // 移動処理
-        transform.position += move * moveSpeed * Time.deltaTime;
+        rb.velocity = move * moveSpeed;
+
+        Vector2 pos = rb.position;
+        pos.x = Mathf.Clamp(pos.x, -12f, 12f);
+        pos.y = Mathf.Clamp(pos.y, 0f, 13f);
+        rb.position = pos;
 
         // 画面外に出ないように制御(数値はカメラに合わせて調整)
-        float clampedX = Mathf.Clamp(transform.position.x, -12f, 12f);
-        float clampedY = Mathf.Clamp(transform.position.y, 0f, 13f);
+        //float clampedX = Mathf.Clamp(rb.position.x, -12f, 12f);
+        //float clampedY = Mathf.Clamp(rb.position.y, 0f, 13f);
 
-        transform.position = new Vector3(clampedX, clampedY, 0f);
+        //rb.position = new Vector2(clampedX, clampedY);
+        //Debug.Log($"moveX:{moveX} moveY:{moveY} | Space:{Input.GetKey(KeyCode.Space)}");
+
     }
 
     private void Shoot()
@@ -82,7 +96,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+            Vector2 shootDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (shootDir == Vector2.zero) shootDir = Vector2.right;
+
+            float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
         }
     }
     // アイテム取得時に弾を切り替える

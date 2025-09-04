@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossEnemy : MonoBehaviour
 {
-    /*
+
     [Header("Boss Settings")]
     public int maxHp = 30; // 耐久値
     public float speed = 3f; // 上下移動速度
@@ -113,6 +113,6 @@ public class BossEnemy : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
         Destroy(gameObject);
-    }*/
+    }
 }
 

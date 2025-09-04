@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8974733580008058643}
   - component: {fileID: 1903495296607541769}
   - component: {fileID: 6156331398910359568}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AzarashiSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1293053132452194236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Azarashi
   m_TagString: Player
   m_Icon: {fileID: 0}
