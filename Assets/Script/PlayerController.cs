@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isDead = false;
     private bool isInvincible = false;
+    private bool shootPressed;
 
     private SpriteRenderer sr;
     private Rigidbody2D rb;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private float initialMoveSpeed;
     private Quaternion initialRotation;
     private Vector2 inputVector;
+
 
     void Start()
     {
@@ -53,14 +55,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     void Update()
     {
         if (!isDead)
         {
             inputVector.x = Input.GetAxisRaw("Horizontal");
             inputVector.y = Input.GetAxisRaw("Vertical");
-            Shoot();
             Move(inputVector);
+            if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -93,16 +99,13 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
-        {
-            nextFireTime = Time.time + fireRate;
+        nextFireTime = Time.time + fireRate;
 
-            Vector2 shootDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            if (shootDir == Vector2.zero) shootDir = Vector2.right;
+        Vector2 shootDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (shootDir == Vector2.zero) shootDir = Vector2.right;
 
-            float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
-        }
+        float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
     }
     // アイテム取得時に弾を切り替える
     public void ChangeBullet(GameObject newBullet)
