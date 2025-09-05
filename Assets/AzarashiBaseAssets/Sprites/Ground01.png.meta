@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 78d82e5195332ce4cb506bc770f8809f
+guid: aebdf8b19f732ee44b34250681297c5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 583115046591817185
-    second: Bullet00 1_0
+      213: -2278534840833296816
+    second: Ground01 1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet00 1_0
+      name: Ground01 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 640
+        height: 398
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e56a4f9b04a71800800000000000000
-      internalID: 583115046591817185
+      spriteID: 056b7cb62a40160e0800000000000000
+      internalID: -2278534840833296816
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bullet00 1_0: 583115046591817185
+      Ground01 1_0: -2278534840833296816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
