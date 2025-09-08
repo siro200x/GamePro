@@ -52,8 +52,10 @@ public class Enemy : MonoBehaviour
                     Destroy(item, 10f);
 
                     Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
+                    player = GameObject.Find("Azarashi");
                     if (rb != null && player != null)
                     {
+                        Debug.Log("通過中");
                         Vector2 dir = (Vector2)(transform.position - player.transform.position);// プレイヤー方向ベクトル
                         dir = dir.normalized;
 

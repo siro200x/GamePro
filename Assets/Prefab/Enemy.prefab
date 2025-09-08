@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2747586234648044388}
   - component: {fileID: 8793494706940192386}
   - component: {fileID: 2904757705560297851}
+  - component: {fileID: -7036152352922581658}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2333656365920332218
 SpriteRenderer:
@@ -152,7 +153,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 0.99}
+    oldSize: {x: 0.96, y: 0.97}
     newSize: {x: 0.98, y: 0.99}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,3 +181,25 @@ MonoBehaviour:
   player: {fileID: 0}
   itemSpeed: 2
   itemRandomAngle: 30
+--- !u!95 &-7036152352922581658
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9148224243151376096}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c0496b6ad0004f4aa3e0ec8b97dc7fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a996ccbb0d5f57740997ec0960e442eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fadeImage: {instanceID: 0}
+  - background: {instanceID: 0}
+  - bossBackground: {instanceID: 0}
+  - bossPrefab: {fileID: 2322298872077200707, guid: e2aaca3a68f58f54faca04e8ac0b3825, type: 3}
+  - bossTargetPos: {instanceID: 0}
+  - waveManager: {instanceID: 0}
+  - bgScroll: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
