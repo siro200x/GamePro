@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 3f;
     public int hp = 1;
+    public int scoreValue = 100; // この敵を倒した時のスコア
+
+    private ScoreManager scoreManager;
 
     public GameObject hitEffectPrefab; // InspectorでHitEffectプレハブをセット
     public GameObject dropItemPrefab; // アイテム
@@ -15,6 +18,11 @@ public class Enemy : MonoBehaviour
     public GameObject player; // プレイヤーのTransformをInspectorでセット
     public float itemSpeed = 7f; // アイテム初速
     public float itemRandomAngle = 30f; // ±ランダム角度
+
+    void Start()
+    {
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+    }
 
     void Update()
     {
@@ -42,6 +50,11 @@ public class Enemy : MonoBehaviour
                 {
                     Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
                 }
+                // スコア加算
+                if (scoreManager != null)
+                {
+                    scoreManager.AddScore(scoreValue);
+                }
 
                 // アイテム出現
                 if (dropItemPrefab != null && Random.value <= dropRate)
@@ -55,7 +68,6 @@ public class Enemy : MonoBehaviour
                     player = GameObject.Find("Azarashi");
                     if (rb != null && player != null)
                     {
-                        Debug.Log("通過中");
                         Vector2 dir = (Vector2)(transform.position - player.transform.position);// プレイヤー方向ベクトル
                         dir = dir.normalized;
 

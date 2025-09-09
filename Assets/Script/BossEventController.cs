@@ -8,10 +8,11 @@ public class BossEventController : MonoBehaviour
     public float eventTime = 30f; // 発動タイミング
 
     public Image fadeImage; // フェード用UI Image
-    public float fadeSpeed = 1.5f; // フェード速度
+    public float fadeDuration = 3f; // フェードにかける時間
+    public float darkHoldDuration = 3f; // 暗転状態を維持する時間
 
-    public SpriteRenderer background; // 背景SpriteRenderer
-    public Sprite bossBackground; // 差し替え用背景
+    public Renderer background; // 背景SpriteRenderer
+    public Material bossMaterial; // ボス用マテリアル
     public BackgroundScroller bgScroll; // 背景スクロール
 
     public GameObject bossPrefab; // ボスPrefab
@@ -19,7 +20,6 @@ public class BossEventController : MonoBehaviour
     public float bossMoveSpeed = 2f; // ボスの出現速度
 
     public WaveManager waveManager; // 雑魚wave管理
-
 
     private bool eventStarted = false;
     private float timer = 0f;
@@ -40,22 +40,38 @@ public class BossEventController : MonoBehaviour
     {
         // 雑魚Waveと背景スクロールを停止
         if (waveManager != null) waveManager.enabled = false;
-        if (bgScroll != null) bgScroll.enabled = false;
+        // if (bgScroll != null) bgScroll.enabled = false;
 
         // フェードアウト
-        float alpha = 0f;
-        while (alpha < 1f)
+        float t = 0f;
+
+        while (t < fadeDuration)
         {
-            alpha += Time.deltaTime * fadeSpeed;
+            t += Time.deltaTime;
+            float alpha = t / fadeDuration;
             fadeImage.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
 
+        // 暗転状態を維持
+        yield return new WaitForSeconds(darkHoldDuration);
+
         // 背景差し替え
-        if (background != null && bossBackground != null)
+        if (background != null && bossMaterial != null)
         {
-            background.sprite = bossBackground;
-            background.transform.position = Vector3.zero;
+            // ボス用マテリアルに切り替え
+            Debug.Log("ボス背景切り替え");
+            background.sharedMaterial = bossMaterial;
+
+            // MaterialのOffsetとScaleを初期化(完全静止用)
+            background.sharedMaterial.mainTextureOffset = Vector2.zero;
+            background.sharedMaterial.mainTextureScale = Vector2.one;
+
+            // 背景スクロースを停止
+            //if (bgScroll != null)
+            //{
+            //    bgScroll.enabled = false; // Updateが止まる
+            //}
         }
 
         // ボスを右外から生成
@@ -64,10 +80,12 @@ public class BossEventController : MonoBehaviour
             Vector3 spawnPos = bossTargetPos.position + new Vector3(10f, 0, 0);
             bossInstance = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
         }
-        // フェードイン
-        while (alpha > 0f)
+        // フェードイン(3秒かけて新背景が現れる)
+        t = 0f;
+        while (t < fadeDuration)
         {
-            alpha -= Time.deltaTime * fadeSpeed;
+            t += Time.deltaTime;
+            float alpha = 1f - (t / fadeDuration);
             fadeImage.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
@@ -80,7 +98,7 @@ public class BossEventController : MonoBehaviour
                 bossInstance.transform.position = Vector3.MoveTowards(
                     bossInstance.transform.position,
                     bossTargetPos.position,
-                    Time.deltaTime * 2f
+                    Time.deltaTime * bossMoveSpeed
                 );
                 yield return null;
             }
@@ -88,6 +106,6 @@ public class BossEventController : MonoBehaviour
         // ボス到達後、必要ならWaveやスクロール再開も可能
         // waveManager.enabled = true;
         // bgScroll.enabled =true;
-        Debug.Log("ボス戦開始!");
+        // Debug.Log("ボス戦開始!");
     }
 }

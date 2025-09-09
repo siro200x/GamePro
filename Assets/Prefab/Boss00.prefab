@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 30
-  speed: 10
+  speed: 5
   topY: 10
   bottomY: 1.6
   bulletPrefab: {fileID: 1648210888070584547, guid: f142578dd7691cb4a92182ec47cd0d53, type: 3}
