@@ -23,6 +23,7 @@ public class BossEnemy : MonoBehaviour
     private int direction = 1;
     private Rigidbody2D rb;
     private float nextAttackTime = 0f;
+    [HideInInspector] public bool isInvincible = true; // 初期は無敵
 
 
     void Start()
@@ -91,11 +92,18 @@ public class BossEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        Debug.Log("Boss Trigger Hit: " + collision.name);
         if (collision.CompareTag("Bullet"))
         {
-            Destroy(collision.gameObject);
-            TakeDamage(1);
+            if (!isInvincible)
+            {
+                Destroy(collision.gameObject);
+                TakeDamage(1);
+            }
+            else
+            {   // 無敵中なので弾だけ消すとか処理できる
+
+            }
         }
     }
 
@@ -113,6 +121,13 @@ public class BossEnemy : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
         Destroy(gameObject);
+    }
+
+    //★ BossEventControllerから呼ぶ用のメソッド
+    public void RemoveInvincible()
+    {
+        isInvincible = false;
+        Debug.Log("Boss無敵解除!");
     }
 }
 

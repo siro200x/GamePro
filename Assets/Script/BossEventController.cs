@@ -40,7 +40,6 @@ public class BossEventController : MonoBehaviour
     {
         // 雑魚Waveと背景スクロールを停止
         if (waveManager != null) waveManager.enabled = false;
-        // if (bgScroll != null) bgScroll.enabled = false;
 
         // フェードアウト
         float t = 0f;
@@ -66,12 +65,6 @@ public class BossEventController : MonoBehaviour
             // MaterialのOffsetとScaleを初期化(完全静止用)
             background.sharedMaterial.mainTextureOffset = Vector2.zero;
             background.sharedMaterial.mainTextureScale = Vector2.one;
-
-            // 背景スクロースを停止
-            //if (bgScroll != null)
-            //{
-            //    bgScroll.enabled = false; // Updateが止まる
-            //}
         }
 
         // ボスを右外から生成
@@ -79,6 +72,17 @@ public class BossEventController : MonoBehaviour
         {
             Vector3 spawnPos = bossTargetPos.position + new Vector3(10f, 0, 0);
             bossInstance = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+
+            //★ ボス登場中は行動停止&無敵状態 ★
+            var bossEnemy = bossInstance.GetComponent<BossEnemy>();
+            if (bossEnemy != null)
+            {
+                bossEnemy.enabled = false;
+                bossEnemy.isInvincible = true;
+            }
+
+            //var colliders = bossInstance.GetComponentsInChildren<Collider2D>();
+            //foreach (var col in colliders) col.enabled = false;
         }
         // フェードイン(3秒かけて新背景が現れる)
         t = 0f;
@@ -90,7 +94,7 @@ public class BossEventController : MonoBehaviour
             yield return null;
         }
 
-        // ボスをゆっくり移動
+        // フェードイン&移動終了後に有効化
         if (bossInstance != null)
         {
             while (Vector3.Distance(bossInstance.transform.position, bossTargetPos.position) > 0.05f)
@@ -102,6 +106,21 @@ public class BossEventController : MonoBehaviour
                 );
                 yield return null;
             }
+            //★ 移動完了後に行動開始&当たり判定オン ★
+            var bossEnemy = bossInstance.GetComponent<BossEnemy>();
+            if (bossEnemy != null)
+            {
+                bossEnemy.enabled = true; //AI開始
+                bossEnemy.RemoveInvincible(); // 無敵解除
+            }
+
+            // var colliders = bossInstance.GetComponentsInChildren<Collider2D>(true);
+            //foreach (var col in colliders)
+            //{
+            //   col.enabled = true;
+            //}
+
+            Debug.Log("ボス行動開始!");
         }
         // ボス到達後、必要ならWaveやスクロール再開も可能
         // waveManager.enabled = true;
