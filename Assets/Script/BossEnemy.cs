@@ -25,6 +25,8 @@ public class BossEnemy : MonoBehaviour
     private float nextAttackTime = 0f;
     [HideInInspector] public bool isInvincible = true; // 初期は無敵
 
+    public GameObject destructionEffectPrefab;
+
 
     void Start()
     {
@@ -119,8 +121,10 @@ public class BossEnemy : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Boss defeated!");
-        Destroy(gameObject);
+        Debug.Log("Boss爆発演出");
+
+        // ボス破壊演出を開始
+        BossDestructionEffect.PlayAt(gameObject, destructionEffectPrefab);
     }
 
     //★ BossEventControllerから呼ぶ用のメソッド

@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
 
         // 移動不可にする
         moveSpeed = 0;
+        FindObjectOfType<UIManager>().LoseLife();
 
         // 死亡演出用: 重力ON & 少し飛ばす
         rb.gravityScale = deathGravity;

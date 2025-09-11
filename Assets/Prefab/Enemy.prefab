@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2333656365920332218}
   - component: {fileID: 2747586234648044388}
   - component: {fileID: 8793494706940192386}
-  - component: {fileID: 2904757705560297851}
-  - component: {fileID: -7036152352922581658}
+  - component: {fileID: 3306783862118667120}
+  - component: {fileID: -3636597601321577553}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.98, y: 0.99}
+  m_Size: {x: 0.48, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,14 +154,14 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.96, y: 0.97}
-    newSize: {x: 0.98, y: 0.99}
+    newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
---- !u!114 &2904757705560297851
+--- !u!114 &3306783862118667120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,13 +175,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   hp: 1
+  scoreValue: 100
   hitEffectPrefab: {fileID: 5058151572838873069, guid: f672448799750ff458c9a12d60782975, type: 3}
   dropItemPrefab: {fileID: 2153946414463840191, guid: 64e6b65db9d06724cae9e5f70d78be1c, type: 3}
-  dropRate: 0.807
+  dropRate: 0.9
   player: {fileID: 0}
-  itemSpeed: 2
+  itemSpeed: 3
   itemRandomAngle: 30
---- !u!95 &-7036152352922581658
+--- !u!95 &-3636597601321577553
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ Animator:
   m_GameObject: {fileID: 9148224243151376096}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6c0496b6ad0004f4aa3e0ec8b97dc7fd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7f8aaa4aeb8a6034aa0ab69de23006e4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

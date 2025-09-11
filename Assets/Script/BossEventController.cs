@@ -39,8 +39,11 @@ public class BossEventController : MonoBehaviour
     IEnumerator BossSequence()
     {
         // 雑魚Waveと背景スクロールを停止
-        if (waveManager != null) waveManager.enabled = false;
-
+        if (waveManager != null)
+        {
+            waveManager.gameObject.SetActive(false);
+            Debug.Log("waveManager親オブジェクト無効化!子も停止");
+        }
         // フェードアウト
         float t = 0f;
 

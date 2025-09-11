@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 3213238057573949770}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7153557716226955081
 SpriteRenderer:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634114de42764c84c98234d256b61512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 30
+  maxHp: 5
   speed: 5
   topY: 10
   bottomY: 1.6
@@ -183,6 +183,8 @@ MonoBehaviour:
   bulletCount: 10
   spreadAngle: 60
   bulletSpeed: 6
+  isInvincible: 1
+  destructionEffectPrefab: {fileID: 7235893044466634217, guid: a10dc9c02cb01a546ac2db66b3e46eaf, type: 3}
 --- !u!1 &6179547292340987582
 GameObject:
   m_ObjectHideFlags: 0
