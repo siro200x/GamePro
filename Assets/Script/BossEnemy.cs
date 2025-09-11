@@ -123,6 +123,13 @@ public class BossEnemy : MonoBehaviour
     {
         Debug.Log("Boss爆発演出");
 
+        // スコア加算(例えば1000点)
+        UIManager ui = FindAnyObjectByType<UIManager>();
+        if (ui != null)
+        {
+            ui.AddScore(1000);
+        }
+
         // ボス破壊演出を開始
         BossDestructionEffect.PlayAt(gameObject, destructionEffectPrefab);
     }

@@ -51,9 +51,10 @@ public class Enemy : MonoBehaviour
                     Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
                 }
                 // スコア加算
-                if (scoreManager != null)
+                UIManager ui = FindAnyObjectByType<UIManager>();
+                if (ui != null)
                 {
-                    scoreManager.AddScore(scoreValue);
+                    ui.AddScore(scoreValue);
                 }
 
                 // アイテム出現
