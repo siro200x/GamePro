@@ -62,6 +62,7 @@ SpriteAtlas:
     - 90a53cc80cf38524b84ff3cb95309f4f: 7318640794054012675
     - 6ff0005955a0a4dd0ace9672b3d8812d: 21300000
     - 88881dbb158a2634cb46584f7a738831: 4826430853908998413
+    - b05d59acdfc19374ca401f94e6c75b43: -9090586349867047447
     - a980e84ebdcc04e4db4a8697fe6167f3: 21300000
     - fa7be84f7f483dd46ab3ad2a373b0db7: 21300000
   m_MasterAtlas: {fileID: 0}
@@ -79,6 +80,7 @@ SpriteAtlas:
   - {fileID: 7318640794054012675, guid: 90a53cc80cf38524b84ff3cb95309f4f, type: 3}
   - {fileID: 21300000, guid: 6ff0005955a0a4dd0ace9672b3d8812d, type: 3}
   - {fileID: 4826430853908998413, guid: 88881dbb158a2634cb46584f7a738831, type: 3}
+  - {fileID: -9090586349867047447, guid: b05d59acdfc19374ca401f94e6c75b43, type: 3}
   - {fileID: 21300000, guid: a980e84ebdcc04e4db4a8697fe6167f3, type: 3}
   - {fileID: 21300000, guid: fa7be84f7f483dd46ab3ad2a373b0db7, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -95,6 +97,7 @@ SpriteAtlas:
   - Enemy02_0
   - Block
   - Bullet01_0
+  - onesan_0
   - Mountain
   - Chara01
   m_RenderDataMap: {}

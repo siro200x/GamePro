@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     private Quaternion initialRotation;
     private Vector2 inputVector;
 
-
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -58,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Update呼ばれてる");
         if (!isDead)
         {
             inputVector.x = Input.GetAxisRaw("Horizontal");
@@ -175,10 +175,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("GAME OVER");
             // GameManagerなどに通知
+            GameManager.Instance.GameOver(false);
         }
     }
 
-    private void Respawn()
+    public void Respawn()
     {
         Debug.Log("Respawn呼ばれた");
         transform.position = respawnPosition;
@@ -190,6 +191,7 @@ public class PlayerController : MonoBehaviour
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = true; // Colliderを戻す
 
+        isDead = false;
         moveSpeed = initialMoveSpeed; // 移動速度をもとに戻す
 
         gameObject.SetActive(true);
