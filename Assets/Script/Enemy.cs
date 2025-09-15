@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
                     Destroy(item, 10f);
 
                     Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
-                    player = GameObject.Find("Azarashi");
+                    player = GameObject.Find("Majoko");
                     if (rb != null && player != null)
                     {
                         Vector2 dir = (Vector2)(transform.position - player.transform.position);// プレイヤー方向ベクトル

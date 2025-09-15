@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject clearUI;
     public TextMeshProUGUI clearMessage;
 
+    private bool isCleared = false;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     // GameOver処理
     public void GameOver(bool revive)
     {
+        if(isCleared) return;
         if (revive)
         {
             Time.timeScale = 1f;
@@ -43,6 +46,8 @@ public class GameManager : MonoBehaviour
     // クリア処理
     public void GameClear()
     {
+        if(isCleared) return;
+        isCleared = true;
         StartCoroutine(ShowClearCoroutine());
     }
 
@@ -52,6 +57,8 @@ public class GameManager : MonoBehaviour
 
         // プレイヤーだけ止める
         PlayerController player = FindObjectOfType<PlayerController>();
+        FindObjectOfType<BGMManager>().PlayEndingBGM();
+
         if (player != null) player.enabled = false;
         Debug.Log("ここまでキてる");
 

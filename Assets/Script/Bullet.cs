@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f; // 弾のスピード
-    public float lifeTime = 3f; // 自動消滅時間
+    public float speed = 10f;      // 弾のスピード
+    public float lifeTime = 3f;    // 自動消滅時間
+    private Rigidbody2D rb;
 
     void Start()
     {
-        Destroy(gameObject, lifeTime); // 一定時間後に消す
-    }
+        rb = GetComponent<Rigidbody2D>();
 
-    void Update()
-    {
-        transform.position += Vector3.right * speed * Time.deltaTime;
+        // 発射方向に進む（生成時の回転を反映）
+        rb.velocity = transform.right * speed;
+
+        // 一定時間後に自動消滅
+        Destroy(gameObject, lifeTime);
     }
 
     // 画面外に出たら削除

@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|c:\\users\\manab\\desktop\\gamepro\\gamepro\\assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|c:\\users\\manab\\desktop\\gamepro\\gamepro\\assets\\script\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|c:\\users\\manab\\desktop\\gamepro\\gamepro\\assets\\script\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|c:\\users\\manab\\desktop\\gamepro\\gamepro\\assets\\script\\itembounce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\itembounce.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|c:\\users\\manab\\desktop\\gamepro\\gamepro\\assets\\script\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\assets\\script\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\assets\\script\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5A6850-D129-F800-0087-345542FD14B7}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,19 +35,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\Enemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Enemy.cs",
-              "ToolTip": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\Enemy.cs",
-              "RelativeToolTip": "Assets\\Script\\Enemy.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAIwCsAAAARAAAAAAAAAA==",
+              "Title": "ItemBounce.cs",
+              "DocumentMoniker": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\ItemBounce.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\ItemBounce.cs",
+              "ToolTip": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\ItemBounce.cs",
+              "RelativeToolTip": "Assets\\Script\\ItemBounce.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T12:10:44.722Z",
+              "WhenOpened": "2025-09-15T15:07:45.561Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Enemy.cs",
+              "ToolTip": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Script\\Enemy.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwCsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T12:10:44.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "BossEnemy.cs",
               "DocumentMoniker": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\BossEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\BossEnemy.cs",
@@ -51,12 +67,11 @@
               "RelativeToolTip": "Assets\\Script\\BossEnemy.cs",
               "ViewState": "AgIAAHMAAAAAAAAAAAAYwIEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T12:07:37.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T12:07:37.88Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\UIManager.cs",
@@ -64,18 +79,17 @@
               "RelativeToolTip": "Assets\\Script\\UIManager.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T12:05:16.287Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T12:05:16.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PlayerController.cs",
               "ToolTip": "C:\\Users\\manab\\Desktop\\GamePro\\GamePro\\Assets\\Script\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Script\\PlayerController.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAUwHAAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAUwHAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-11T09:40:46.864Z",
               "EditorCaption": ""

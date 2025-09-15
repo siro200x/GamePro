@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerController shooting; // PlayerShootingをInspectorでセット
-    public GameObject newBulletPrefab; // アイテムで変わる弾
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,9 +13,10 @@ public class Player : MonoBehaviour
             // ここでパワーアップ処理
             Debug.Log("アイテムゲット！");
 
-            if (shooting != null && newBulletPrefab != null)
+            if (shooting != null)
             {
-                shooting.ChangeBullet(newBulletPrefab);
+                shooting.OnItemCollected(); // ここで追加弾を1発発射
+                //shooting.ChangeBullet(newBulletPrefab);
             }
 
             Destroy(other.gameObject);

@@ -63,6 +63,7 @@ public class BossEventController : MonoBehaviour
         {
             // ボス用マテリアルに切り替え
             Debug.Log("ボス背景切り替え");
+            FindObjectOfType<BGMManager>().PlayBossBGM();
             background.sharedMaterial = bossMaterial;
 
             // MaterialのOffsetとScaleを初期化(完全静止用)
