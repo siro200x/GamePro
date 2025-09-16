@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Ground
   - PlayerBullet
+  - dropItem_P
+  - dropItem_S
   layers:
   - Default
   - TransparentFX

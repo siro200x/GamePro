@@ -19,9 +19,23 @@ public class BGMManager : MonoBehaviour
     }
 
     // ステージBGM再生
-    public void PlayStageBGM()
+    public void PlayStageBGM(bool immediate = false)
     {
-        StartCoroutine(FadeToClip(stageBGM, true));
+        if (immediate)
+        {
+            // 即鳴らす
+            if (audioSource.isPlaying) audioSource.Stop();
+
+            audioSource.clip = stageBGM;
+            audioSource.loop = true;
+            audioSource.volume = maxVolume;
+            audioSource.Play();
+        }
+        else
+        {
+            // フェードあり
+            StartCoroutine(FadeToClip(stageBGM, true));
+        }
     }
 
     // ボスBGM再生

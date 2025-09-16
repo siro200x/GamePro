@@ -125,13 +125,6 @@ public class PlayerController : MonoBehaviour
         extraBullets++; // 弾数+1
         Debug.Log("追加弾を取得！ 現在の追加弾数: " + extraBullets);
     }
-
-    // public void ChangeBullet(GameObject newBullet)
-    // {
-    //     bulletPrefab = newBullet;
-    //     Debug.Log("弾の種類を変更！");
-    // }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isDead || isInvincible) return;

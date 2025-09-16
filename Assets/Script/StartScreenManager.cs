@@ -25,7 +25,6 @@ public class StartScreenManager : MonoBehaviour
     {
         if (titleImage == null || startButton == null)
         {
-            Debug.LogError("Title Image またはStart Button がセットされていません!");
             return;
         }
 
@@ -102,7 +101,6 @@ public class StartScreenManager : MonoBehaviour
     private void OnStartButtonClicked()
     {
         // シーン制御
-        Debug.Log("Start Button Clicked!");
         if (!string.IsNullOrEmpty(gameSceneName))
         {
             SceneManager.LoadScene(gameSceneName);

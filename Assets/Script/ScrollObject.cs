@@ -24,7 +24,6 @@ public class ScrollObject : MonoBehaviour
 
     void ScrollEnd()
     {
-        // Debug.Log(transform.position.x);
         // 通り過ぎた分を加味してポジションを再設定
         float diff = transform.position.x - endPosition;
         Vector3 restartPosition = transform.position;

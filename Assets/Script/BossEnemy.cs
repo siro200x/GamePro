@@ -98,7 +98,6 @@ public class BossEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Boss Trigger Hit: " + collision.name);
         if (collision.CompareTag("Bullet"))
         {
             if (!isInvincible)
@@ -108,7 +107,7 @@ public class BossEnemy : MonoBehaviour
             }
             else
             {   // 無敵中なので弾だけ消すとか処理できる
-
+                Destroy(collision.gameObject);
             }
         }
     }
@@ -121,7 +120,6 @@ public class BossEnemy : MonoBehaviour
             SEManager.Instance.PlaySE(bossHitSE);
         }
         currentHp -= damage;
-        Debug.Log("Boss HP:" + currentHp);
         if (currentHp <= 0)
         {
             Die();
@@ -130,7 +128,6 @@ public class BossEnemy : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Boss爆発演出");
         FindObjectOfType<UIManager>().AddScore(1000);
 
         // ボス破壊演出を開始
@@ -157,7 +154,6 @@ public class BossEnemy : MonoBehaviour
     public void RemoveInvincible()
     {
         isInvincible = false;
-        Debug.Log("Boss無敵解除!");
     }
 }
 

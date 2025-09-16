@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
 
     public void LoseLife()
     {
-        lives--;
+        lives = Mathf.Max(0, lives - 1);
         UpdateUI();
     }
 

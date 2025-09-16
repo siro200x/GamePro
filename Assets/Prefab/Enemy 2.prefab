@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 9148224243151376096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 583115046591817185, guid: 78d82e5195332ce4cb506bc770f8809f, type: 3}
+  m_Sprite: {fileID: 7318640794054012675, guid: 475ca00b09f30df48b788440b811686b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,17 +148,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02530709, y: 0.028470516}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
+    oldSize: {x: 1.31, y: 0.94}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 0.8216458, y: 0.7773583}
   m_EdgeRadius: 0
 --- !u!114 &3306783862118667120
 MonoBehaviour:
@@ -174,10 +174,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   hp: 1
-  scoreValue: 100
+  scoreValue: 200
   hitEffectPrefab: {fileID: 5058151572838873069, guid: f672448799750ff458c9a12d60782975, type: 3}
-  dropItemPrefab: {fileID: 2153946414463840191, guid: 64e6b65db9d06724cae9e5f70d78be1c, type: 3}
-  dropRate: 0.9
+  bulletUpItemPrefab: {fileID: 2153946414463840191, guid: f6bd5a5977516994bb4bfeb1f7998b14, type: 3}
+  speedUpItemPrefab: {fileID: 2153946414463840191, guid: 64e6b65db9d06724cae9e5f70d78be1c, type: 3}
+  dropRate: 0.1
   player: {fileID: 0}
   itemSpeed: 3
   itemRandomAngle: 30

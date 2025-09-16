@@ -19,7 +19,7 @@ public class EnemySpawner01 : MonoBehaviour
 
     void Start()
     {
-        timer = initialDelay; //Startでtimerを負の値にして遅延を作る
+        timer = -initialDelay; //Startでtimerを負の値にして遅延を作る
     }
 
     void Update()

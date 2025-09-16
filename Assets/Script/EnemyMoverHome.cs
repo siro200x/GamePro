@@ -5,8 +5,6 @@ public class EnemyMoverHome : MonoBehaviour
     [Header("Movement Settings")]
     public float speed = 5f;             // 移動速度
     public float rushDuration = 1f;      // プレイヤーに向かう突撃時間
-    public float destroyMarginX = 12f;   // 画面外判定 X方向
-    public float destroyMarginY = 7f;    // 画面外判定 Y方向
 
     private Transform player;
     private Vector3 direction;
@@ -49,11 +47,11 @@ public class EnemyMoverHome : MonoBehaviour
         // 移動
         transform.position += direction * speed * Time.deltaTime;
 
-        // 突撃終了後のみ画面外判定で消す
+        // 突撃終了後のみ画面外判定で消す（カメラ基準）
         if (!isRushing)
         {
-            if (transform.position.x < -destroyMarginX || transform.position.x > destroyMarginX ||
-                transform.position.y < -destroyMarginY || transform.position.y > destroyMarginY)
+            Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+            if (viewPos.x < -0.1f || viewPos.x > 1.1f || viewPos.y < -0.1f || viewPos.y > 1.1f)
             {
                 Destroy(gameObject);
             }

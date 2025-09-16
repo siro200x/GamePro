@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public PlayerController shooting; // PlayerShootingをInspectorでセット
+    public PlayerController shooting; // PlayerController をInspectorでセット
+
+    [Header("Speed Up Settings")]
+    public int maxSpeedLevel = 5;      // スピードアップ最大段階
+    public float speedIncrement = 1f;  // 1段階あたりの速度増加
+
+    private int currentSpeedLevel = 0; // 現在の速度段階
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Item"))
+        // 弾数アップ
+        if (other.CompareTag("dropItem_P"))
         {
-            // ここでパワーアップ処理
-            Debug.Log("アイテムゲット！");
-
             if (shooting != null)
             {
-                shooting.OnItemCollected(); // ここで追加弾を1発発射
-                //shooting.ChangeBullet(newBulletPrefab);
+                shooting.OnItemCollected(); // 追加弾数アップ
+            }
+
+            Destroy(other.gameObject);
+        }
+        // スピードアップ
+        else if (other.CompareTag("dropItem_S"))
+        {
+            if (currentSpeedLevel < maxSpeedLevel && shooting != null)
+            {
+                shooting.moveSpeed += speedIncrement;
+                currentSpeedLevel++;
+                Debug.Log("スピードアップ！ 現在の速度: " + shooting.moveSpeed + " (段階: " + currentSpeedLevel + ")");
+            }
+            else
+            {
+                Debug.Log("スピードは最大段階です");
             }
 
             Destroy(other.gameObject);

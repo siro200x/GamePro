@@ -41,8 +41,8 @@ public class BossEventController : MonoBehaviour
         // 雑魚Waveと背景スクロールを停止
         if (waveManager != null)
         {
+            waveManager.enabled = false;
             waveManager.gameObject.SetActive(false);
-            Debug.Log("waveManager親オブジェクト無効化!子も停止");
         }
         // フェードアウト
         float t = 0f;
@@ -62,7 +62,6 @@ public class BossEventController : MonoBehaviour
         if (background != null && bossMaterial != null)
         {
             // ボス用マテリアルに切り替え
-            Debug.Log("ボス背景切り替え");
             FindObjectOfType<BGMManager>().PlayBossBGM();
             background.sharedMaterial = bossMaterial;
 
@@ -74,7 +73,7 @@ public class BossEventController : MonoBehaviour
         // ボスを右外から生成
         if (bossPrefab != null && bossTargetPos != null)
         {
-            Vector3 spawnPos = bossTargetPos.position + new Vector3(10f, 0, 0);
+            Vector3 spawnPos = bossTargetPos.position + new Vector3(11f, 0, 0);
             bossInstance = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
 
             //★ ボス登場中は行動停止&無敵状態 ★
@@ -117,18 +116,6 @@ public class BossEventController : MonoBehaviour
                 bossEnemy.enabled = true; //AI開始
                 bossEnemy.RemoveInvincible(); // 無敵解除
             }
-
-            // var colliders = bossInstance.GetComponentsInChildren<Collider2D>(true);
-            //foreach (var col in colliders)
-            //{
-            //   col.enabled = true;
-            //}
-
-            Debug.Log("ボス行動開始!");
         }
-        // ボス到達後、必要ならWaveやスクロール再開も可能
-        // waveManager.enabled = true;
-        // bgScroll.enabled =true;
-        // Debug.Log("ボス戦開始!");
     }
 }

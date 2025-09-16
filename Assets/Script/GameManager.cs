@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject clearUI;
     public TextMeshProUGUI clearMessage;
+    public GameObject titleButton;
 
     private bool isCleared = false;
 
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
     // GameOver処理
     public void GameOver(bool revive)
     {
-        if(isCleared) return;
+        if (isCleared) return;
         if (revive)
         {
             Time.timeScale = 1f;
@@ -46,8 +47,22 @@ public class GameManager : MonoBehaviour
     // クリア処理
     public void GameClear()
     {
-        if(isCleared) return;
+        if (isCleared) return;
         isCleared = true;
+
+        // WaveManagerをオフにする
+        if (Instance != null)
+        {
+            WaveManager wave = FindObjectOfType<WaveManager>();
+            if (wave != null)
+            {
+                wave.gameObject.SetActive(false);
+            }
+        }
+        // ★ BossEventController を止める
+        var bossEvent = FindObjectOfType<BossEventController>();
+        if (bossEvent != null) bossEvent.enabled = false;
+
         StartCoroutine(ShowClearCoroutine());
     }
 
@@ -60,11 +75,13 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<BGMManager>().PlayEndingBGM();
 
         if (player != null) player.enabled = false;
-        Debug.Log("ここまでキてる");
 
         // UIを表示
         if (clearUI != null) clearUI.SetActive(true);
         if (clearMessage != null)
             clearMessage.text = "\n\nCongratulations!!\nThank you for playing my game!";
+
+        // タイトルボタン表示
+        if (titleButton != null) titleButton.SetActive(true);
     }
 }

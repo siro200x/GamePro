@@ -11,9 +11,12 @@ public class Enemy : MonoBehaviour
     private ScoreManager scoreManager;
 
     public GameObject hitEffectPrefab; // InspectorでHitEffectプレハブをセット
-    public GameObject dropItemPrefab; // アイテム
+
+    // ドロップアイテム
+    public GameObject bulletUpItemPrefab; // 弾数アップ
+    public GameObject speedUpItemPrefab;  // スピードアップ
     [Range(0f, 1f)]
-    public float dropRate = 0.9f; // 0.3なら30％の確率でドロップ
+    public float dropRate = 0.9f; // 出現確率
 
     public GameObject player; // プレイヤーのTransformをInspectorでセット
     public float itemSpeed = 7f; // アイテム初速
@@ -22,6 +25,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         scoreManager = FindAnyObjectByType<ScoreManager>();
+        if (player == null)
+            player = GameObject.Find("Majoko");
     }
 
     void Update()
@@ -35,7 +40,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // 弾と衝突したら
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
@@ -45,47 +49,47 @@ public class Enemy : MonoBehaviour
 
             if (hp <= 0)
             {
-                // エフェクトを生成
+                // ヒットエフェクト
                 if (hitEffectPrefab != null)
-                {
                     Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
-                }
+
                 // スコア加算
                 UIManager ui = FindAnyObjectByType<UIManager>();
                 if (ui != null)
-                {
                     ui.AddScore(scoreValue);
-                }
 
-                // アイテム出現
-                if (dropItemPrefab != null && Random.value <= dropRate)
+                // アイテムドロップ（弾数アップかスピードアップのどちらか1個）
+                if (Random.value <= dropRate)
                 {
-                    GameObject item = Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
+                    GameObject itemToDrop = null;
 
-                    // x秒後に自動消滅
-                    Destroy(item, 10f);
+                    if (Random.value < 0.7f)
+                        itemToDrop = bulletUpItemPrefab;
+                    else
+                        itemToDrop = speedUpItemPrefab;
 
-                    Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
-                    player = GameObject.Find("Majoko");
-                    if (rb != null && player != null)
+                    if (itemToDrop != null)
                     {
-                        Vector2 dir = (Vector2)(transform.position - player.transform.position);// プレイヤー方向ベクトル
-                        dir = dir.normalized;
+                        GameObject item = Instantiate(itemToDrop, transform.position, Quaternion.identity);
+                        Destroy(item, 10f); // 自動消滅
 
-                        // 逆方向
-                        dir = dir;
+                        Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
+                        if (rb != null && player != null)
+                        {
+                            Vector2 dir = (player.transform.position - transform.position).normalized;
 
-                        // ±ランダム角度
-                        float angle = Random.Range(-itemRandomAngle, itemRandomAngle); // ±30度ランダム
-                        Quaternion rot = Quaternion.Euler(0, 0, angle);
-                        Vector2 finalDir = rot * dir;
+                            // ±ランダム角度
+                            float angle = Random.Range(-itemRandomAngle, itemRandomAngle);
+                            Quaternion rot = Quaternion.Euler(0, 0, angle);
+                            Vector2 finalDir = rot * dir;
 
-                        // 速度を設定
-                        rb.velocity = finalDir * itemSpeed;
+                            rb.velocity = finalDir * itemSpeed;
+                        }
                     }
                 }
+
                 SEManager.Instance.PlaySE(SEManager.Instance.enemyDestroySE);
-                Destroy(gameObject); // 敵を消す(ここで爆発エフェクトを出すと◎)
+                Destroy(gameObject);
             }
         }
     }
