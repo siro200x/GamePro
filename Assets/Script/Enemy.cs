@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
                         dir = dir.normalized;
 
                         // 逆方向
-                        dir = -dir;
+                        dir = dir;
 
                         // ±ランダム角度
                         float angle = Random.Range(-itemRandomAngle, itemRandomAngle); // ±30度ランダム
@@ -84,6 +84,7 @@ public class Enemy : MonoBehaviour
                         rb.velocity = finalDir * itemSpeed;
                     }
                 }
+                SEManager.Instance.PlaySE(SEManager.Instance.enemyDestroySE);
                 Destroy(gameObject); // 敵を消す(ここで爆発エフェクトを出すと◎)
             }
         }

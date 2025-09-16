@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634114de42764c84c98234d256b61512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 100
   speed: 5
   topY: 10
   bottomY: 1.6
@@ -185,6 +185,9 @@ MonoBehaviour:
   bulletSpeed: 6
   isInvincible: 1
   destructionEffectPrefab: {fileID: 7235893044466634217, guid: a10dc9c02cb01a546ac2db66b3e46eaf, type: 3}
+  bossExplosionSE: {fileID: 8300000, guid: 96bc9aa3b4921f8428b40515bf3fb10f, type: 3}
+  seVolume: 0.5
+  bossHitSE: {fileID: 8300000, guid: 4f48c539c40125d49bb836e68820615f, type: 3}
 --- !u!1 &6179547292340987582
 GameObject:
   m_ObjectHideFlags: 0

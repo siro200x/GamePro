@@ -98,33 +98,33 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Shoot()
-{
-    nextFireTime = Time.time + fireRate;
-
-    // 通常弾
-    Vector2 shootDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    if (shootDir == Vector2.zero) shootDir = Vector2.right;
-
-    float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
-    Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
-
-    // 追加弾を発射（アイテム取得数に応じて）
-    for (int i = 0; i < extraBullets; i++)
     {
-        float randomAngle = Random.Range(-30f, 30f); // ±30°ランダム
-        Vector2 extraDir = Quaternion.Euler(0, 0, randomAngle) * Vector2.right;
-        float extraAngle = Mathf.Atan2(extraDir.y, extraDir.x) * Mathf.Rad2Deg;
+        nextFireTime = Time.time + fireRate;
 
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, extraAngle));
+        // 通常弾
+        Vector2 shootDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (shootDir == Vector2.zero) shootDir = Vector2.right;
+
+        float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
+        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
+
+        // 追加弾を発射（アイテム取得数に応じて）
+        for (int i = 0; i < extraBullets; i++)
+        {
+            float randomAngle = Random.Range(-30f, 30f); // ±30°ランダム
+            Vector2 extraDir = Quaternion.Euler(0, 0, randomAngle) * Vector2.right;
+            float extraAngle = Mathf.Atan2(extraDir.y, extraDir.x) * Mathf.Rad2Deg;
+
+            Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, extraAngle));
+        }
     }
-}
 
-// アイテム取得時に弾数を増やす
-public void OnItemCollected()
-{
-    extraBullets++; // 弾数+1
-    Debug.Log("追加弾を取得！ 現在の追加弾数: " + extraBullets);
-}
+    // アイテム取得時に弾数を増やす
+    public void OnItemCollected()
+    {
+        extraBullets++; // 弾数+1
+        Debug.Log("追加弾を取得！ 現在の追加弾数: " + extraBullets);
+    }
 
     // public void ChangeBullet(GameObject newBullet)
     // {
@@ -146,6 +146,9 @@ public void OnItemCollected()
 
     private IEnumerator DeathSequence()
     {
+        // 死亡SE再生
+        SEManager.Instance.PlaySE(SEManager.Instance.playerDeathSE);
+
         isDead = true;
         lives--;
 
@@ -200,6 +203,9 @@ public void OnItemCollected()
 
         isDead = false;
         moveSpeed = initialMoveSpeed;
+
+        // 復活SE再生
+        SEManager.Instance.PlaySE(SEManager.Instance.playerRespawnSE);
 
         StartCoroutine(InvincibleMode());
     }

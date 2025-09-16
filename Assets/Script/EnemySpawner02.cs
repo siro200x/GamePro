@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner01 : MonoBehaviour
+public class EnemySpawner02 : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public int enemyCount = 5;
@@ -13,13 +13,13 @@ public class EnemySpawner01 : MonoBehaviour
     public int maxWaves = 3; // 出現上限
     public int spawnedWaves = 0; // 現在までに出現したWave数
 
-    public float initialDelay = 3f; //ゲーム開始から敵を出すまでの秒数
+    public float initialDelay = 5f; //ゲーム開始から敵を出すまでの秒数
 
     private float timer;
 
     void Start()
     {
-        timer = initialDelay; //Startでtimerを負の値にして遅延を作る
+        timer = -initialDelay; //Startでtimerを負の値にして遅延を作る
     }
 
     void Update()
@@ -39,7 +39,7 @@ public class EnemySpawner01 : MonoBehaviour
         {
             Vector3 pos = spawnPoint.position + new Vector3(i * spacing, 0, 0);
             GameObject enemy = Instantiate(enemyPrefab, pos, Quaternion.identity);
-            enemy.AddComponent<EnemyMoverZ>(); // 敵1体ごとに動きを設定
+            enemy.AddComponent<EnemyMoverZZ>(); // 敵1体ごとに動きを設定
         }
         spawnedWaves++;
     }

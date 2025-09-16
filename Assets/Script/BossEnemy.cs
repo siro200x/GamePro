@@ -27,6 +27,10 @@ public class BossEnemy : MonoBehaviour
 
     public GameObject destructionEffectPrefab;
 
+    [SerializeField] private AudioClip bossExplosionSE; // Inspectorで設定
+    [SerializeField] private float seVolume = 0.5f;
+    [SerializeField] private AudioClip bossHitSE;
+
 
     void Start()
     {
@@ -111,6 +115,11 @@ public class BossEnemy : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        // ダメージ分ループしてSEを鳴らす場合
+        for (int i = 0; i < damage; i++)
+        {
+            SEManager.Instance.PlaySE(bossHitSE);
+        }
         currentHp -= damage;
         Debug.Log("Boss HP:" + currentHp);
         if (currentHp <= 0)
@@ -126,7 +135,22 @@ public class BossEnemy : MonoBehaviour
 
         // ボス破壊演出を開始
         BossDestructionEffect.PlayAt(gameObject, destructionEffectPrefab);
+
+        // 3秒間、0.2秒ごとに同じ爆発SEを連打
+        StartCoroutine(PlayBossExplosionSE(5f, 1f));
+
         GameManager.Instance.GameClear();
+    }
+
+    private IEnumerator PlayBossExplosionSE(float duration, float interval)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            SEManager.Instance.PlaySE(bossExplosionSE); // 同じクリップを再生
+            yield return new WaitForSeconds(interval);
+            timer += interval;
+        }
     }
 
     //★ BossEventControllerから呼ぶ用のメソッド

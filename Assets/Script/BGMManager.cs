@@ -8,6 +8,7 @@ public class BGMManager : MonoBehaviour
     public AudioClip stageBGM;
     public AudioClip bossBGM;
     public AudioClip endingBGM;
+    [Range(0f, 1f)] public float maxVolume = 0.5f;
 
     [Header("Fade Settings")]
     public float fadeDuration = 1f; // フェード時間（秒）
@@ -62,10 +63,10 @@ public class BGMManager : MonoBehaviour
         float t = 0f;
         while (t < fadeDuration)
         {
-            audioSource.volume = Mathf.Lerp(0f, 1f, t / fadeDuration);
+            audioSource.volume = Mathf.Lerp(0f, maxVolume, t / fadeDuration);
             t += Time.deltaTime;
             yield return null;
         }
-        audioSource.volume = 1f;
+        audioSource.volume = maxVolume;
     }
 }

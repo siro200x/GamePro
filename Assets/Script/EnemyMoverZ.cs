@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMover : MonoBehaviour
+public class EnemyMoverZ : MonoBehaviour
 {
     public float speed = 2f;
 
