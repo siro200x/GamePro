@@ -2465,8 +2465,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 374500058}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameOver
-        m_Mode: 6
+        m_MethodName: Restart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3019,6 +3019,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4950853575977318633, guid: e34c1422a04c58144bb57034be398eb3, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644975670724665561, guid: e34c1422a04c58144bb57034be398eb3, type: 3}
+      propertyPath: lives
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7644975670724665561, guid: e34c1422a04c58144bb57034be398eb3, type: 3}
