@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,7 +42,16 @@ public class GameManager : MonoBehaviour
             // 完全に終了
             Time.timeScale = 0f; // 全停止
             gameOverUI.SetActive(true);
+
+            // タイトルに戻す
+            StartCoroutine(ReturnToTitleCoroutine());
         }
+    }
+
+    // GiveUpボタン専用メソッド
+    public void GiveUp()
+    {
+        GameOver(false);
     }
 
     // クリア処理
@@ -83,5 +93,12 @@ public class GameManager : MonoBehaviour
 
         // タイトルボタン表示
         if (titleButton != null) titleButton.SetActive(true);
+    }
+
+    private IEnumerator ReturnToTitleCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("TitleScene");
     }
 }
