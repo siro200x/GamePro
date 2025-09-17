@@ -200,7 +200,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Majoko05_0: 7338154591183748661
+      Majoko05_1: -704179229256818542
+      Majoko05_2: -7092615724166763279
+      Majoko05_3: -5446817815182740669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

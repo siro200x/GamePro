@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3a35ab02486b06d4495d91ac1fcb6bf0
+guid: e080121221769f44c930ebf5fe455136
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6103238223604962148
-    second: Item_S_0
+      213: -1320316887843033235
+    second: Ground02_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Item_S_0
+      name: Ground02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 80
+        width: 1280
+        height: 751
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9ca0760c21fc4ba0800000000000000
-      internalID: -6103238223604962148
+      spriteID: d6faa2d29ca4dade0800000000000000
+      internalID: -1320316887843033235
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Item_S_0: -6103238223604962148
+      Ground02_0: -1320316887843033235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
